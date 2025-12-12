@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧾 TaxSmart AI - Indian Tax Filing Assistant
 
-## Getting Started
+AI-powered assistant for Indian citizens to navigate tax filing with ease. Get personalized ITR form recommendations, discover tax deductions, and validate your data before filing.
 
-First, run the development server:
+## ✨ Features
+
+- **ITR Form Selection** - AI determines the correct ITR form based on your income sources
+- **Deduction Discovery** - Find all applicable deductions (80C, 80D, HRA, etc.)
+- **Tax Calculation** - Compare Old vs New tax regime
+- **Error Validation** - Catch common filing mistakes before submission
+- **Local AI (Ollama)** - Runs entirely on your machine - no API costs!
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- Python 3.10+
+- Ollama (for local AI)
+
+### 1. Clone & Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/tax-assistant.git
+cd tax-assistant
+
+# Frontend
+npm install
+
+# Backend
+cd backend
+python -m venv venv
+.\venv\Scripts\Activate.ps1  # Windows
+pip install -r requirements.txt
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Ollama (Local AI)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```powershell
+# Windows
+winget install Ollama.Ollama
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Pull the model
+ollama pull llama3.2
+```
 
-## Learn More
+### 3. Set Up Environment
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Frontend - copy and edit
+cp .env.example .env.local
+# Edit .env.local with your Clerk keys
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Backend - copy template
+cp backend/.env.template backend/.env
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Run the App
 
-## Deploy on Vercel
+```bash
+# Terminal 1: Backend
+cd backend
+.\venv\Scripts\Activate.ps1
+uvicorn main:app --reload --port 8000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Terminal 2: Frontend
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Visit **http://localhost:3000** 🎉
+
+## 🔧 Configuration
+
+### Required: Clerk Authentication
+1. Go to https://dashboard.clerk.com
+2. Create a new application
+3. Copy keys to `.env.local`:
+   - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+   - `CLERK_SECRET_KEY`
+
+### Optional: Supabase Database
+For conversation persistence, set up Supabase and add keys to `.env.local`.
+
+## 📁 Project Structure
+
+```
+tax-assistant/
+├── src/                    # Next.js frontend
+│   ├── app/               # Pages
+│   ├── components/        # React components
+│   └── lib/               # Utilities
+├── backend/               # FastAPI backend
+│   ├── api/routes/        # API endpoints
+│   ├── services/          # Business logic
+│   └── knowledge/         # Prompt templates
+└── supabase/              # Database schema
+```
+
+## 🤖 Tech Stack
+
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS, shadcn/ui
+- **Backend**: FastAPI, Python
+- **AI**: Ollama (Llama 3.2) - runs locally
+- **Auth**: Clerk
+- **Database**: Supabase (optional)
+
+## 📝 License
+
+MIT License - feel free to use for personal or commercial projects.
+
+## 🙏 Contributing
+
+Contributions welcome! Please open an issue first to discuss proposed changes.

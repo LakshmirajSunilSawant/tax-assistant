@@ -1,0 +1,403 @@
+{
+    "itrForms": {
+        "ITR-1": {
+            "name": "ITR-1 (SAHAJ)",
+            "description": "For individuals having income from salary, one house property and other sources",
+            "eligibility": {
+                "incomeTypes": [
+                    "salary",
+                    "pension",
+                    "single_house_property",
+                    "other_sources"
+                ],
+                "maxIncome": 5000000,
+                "restrictions": [
+                    "Total income up to ₹50 lakh",
+                    "Income from one house property only",
+                    "No business/professional income",
+                    "Not a director of a company",
+                    "No unlisted equity shares",
+                    "No foreign assets/income"
+                ]
+            },
+            "applicableTo": [
+                "salaried",
+                "pensioner",
+                "rental_income"
+            ]
+        },
+        "ITR-2": {
+            "name": "ITR-2",
+            "description": "For individuals and HUFs not having income from business or profession",
+            "eligibility": {
+                "incomeTypes": [
+                    "salary",
+                    "house_property",
+                    "capital_gains",
+                    "other_sources"
+                ],
+                "maxIncome": null,
+                "restrictions": [
+                    "No business/professional income",
+                    "Can have multiple house properties",
+                    "Can be director of a company",
+                    "Can have capital gains",
+                    "Can have foreign assets/income"
+                ]
+            },
+            "applicableTo": [
+                "salaried",
+                "huf",
+                "capital_gains",
+                "multiple_properties",
+                "director"
+            ]
+        },
+        "ITR-3": {
+            "name": "ITR-3",
+            "description": "For individuals and HUFs having income from business or profession",
+            "eligibility": {
+                "incomeTypes": [
+                    "salary",
+                    "house_property",
+                    "business",
+                    "profession",
+                    "capital_gains",
+                    "other_sources"
+                ],
+                "maxIncome": null,
+                "restrictions": [
+                    "For business or professional income",
+                    "Partner in a firm",
+                    "Regular accounting required"
+                ]
+            },
+            "applicableTo": [
+                "business",
+                "professional",
+                "partner"
+            ]
+        },
+        "ITR-4": {
+            "name": "ITR-4 (SUGAM)",
+            "description": "For individuals, HUFs and firms (other than LLP) opting for presumptive taxation",
+            "eligibility": {
+                "incomeTypes": [
+                    "presumptive_business",
+                    "presumptive_profession"
+                ],
+                "maxIncome": 5000000,
+                "restrictions": [
+                    "Total income up to ₹50 lakh",
+                    "Business turnover up to ₹2 crore (Section 44AD)",
+                    "Professional income up to ₹50 lakh (Section 44ADA)",
+                    "Freight transport business (Section 44AE)",
+                    "Simplified tax filing"
+                ]
+            },
+            "applicableTo": [
+                "small_business",
+                "freelancer",
+                "consultant",
+                "gig_worker",
+                "transport"
+            ]
+        }
+    },
+    "deductionSections": {
+        "80C": {
+            "name": "Section 80C",
+            "description": "Investments in specified instruments",
+            "maxLimit": 150000,
+            "eligibleInvestments": [
+                "PPF (Public Provident Fund)",
+                "ELSS (Equity Linked Savings Scheme)",
+                "Life Insurance Premium",
+                "EPF (Employee Provident Fund)",
+                "NSC (National Savings Certificate)",
+                "Tax Saver FD (5 years)",
+                "Sukanya Samriddhi Yojana",
+                "Principal repayment of home loan",
+                "Tuition fees for children",
+                "NPS (National Pension Scheme) - Tier 1"
+            ],
+            "applicableTo": "all"
+        },
+        "80CCD(1B)": {
+            "name": "Section 80CCD(1B)",
+            "description": "Additional deduction for NPS contribution",
+            "maxLimit": 50000,
+            "eligibleInvestments": [
+                "NPS additional contribution"
+            ],
+            "applicableTo": "all",
+            "note": "Over and above 80C limit"
+        },
+        "80D": {
+            "name": "Section 80D",
+            "description": "Health insurance premium",
+            "maxLimit": {
+                "self_family": 25000,
+                "self_family_senior": 50000,
+                "parents": 25000,
+                "parents_senior": 50000,
+                "total_max": 100000
+            },
+            "eligibleExpenses": [
+                "Health insurance premium for self/spouse/children",
+                "Health insurance premium for parents",
+                "Preventive health check-up (₹5,000 within overall limit)"
+            ],
+            "applicableTo": "all"
+        },
+        "80TTA": {
+            "name": "Section 80TTA",
+            "description": "Deduction on interest from savings account",
+            "maxLimit": 10000,
+            "eligibleIncome": [
+                "Savings account interest",
+                "Cooperative bank interest"
+            ],
+            "applicableTo": "non_senior_citizens",
+            "note": "Not applicable to senior citizens (they can claim 80TTB)"
+        },
+        "80TTB": {
+            "name": "Section 80TTB",
+            "description": "Deduction on interest from deposits for senior citizens",
+            "maxLimit": 50000,
+            "eligibleIncome": [
+                "Savings account interest",
+                "Fixed deposit interest",
+                "Recurring deposit interest"
+            ],
+            "applicableTo": "senior_citizens",
+            "note": "Only for senior citizens (60+ years)"
+        },
+        "80E": {
+            "name": "Section 80E",
+            "description": "Interest on education loan",
+            "maxLimit": null,
+            "eligibleExpenses": [
+                "Interest paid on education loan"
+            ],
+            "applicableTo": "all",
+            "note": "No upper limit, only interest component, for 8 years from start of repayment"
+        },
+        "80G": {
+            "name": "Section 80G",
+            "description": "Donations to specified funds/charities",
+            "maxLimit": "varies",
+            "eligibleDonations": [
+                "PM CARES Fund (100% without limit)",
+                "National Defence Fund (100% without limit)",
+                "Prime Minister's National Relief Fund (100% without limit)",
+                "Donations to approved charitable institutions (50% or 100% subject to limits)"
+            ],
+            "applicableTo": "all"
+        },
+        "24": {
+            "name": "Section 24",
+            "description": "Home loan interest deduction",
+            "maxLimit": {
+                "self_occupied": 200000,
+                "let_out": null
+            },
+            "eligibleExpenses": [
+                "Interest on home loan"
+            ],
+            "applicableTo": "all",
+            "note": "For self-occupied: max ₹2 lakh, For let-out: no limit"
+        },
+        "HRA": {
+            "name": "HRA Exemption",
+            "description": "House Rent Allowance exemption for salaried individuals",
+            "calculation": "Least of: (a) Actual HRA received, (b) Rent paid minus 10% of salary, (c) 50% of salary (metro) or 40% (non-metro)",
+            "eligibleFor": "salaried",
+            "note": "Not applicable if you own a house in the same city"
+        },
+        "87A": {
+            "name": "Section 87A",
+            "description": "Tax rebate for individuals with income up to ₹5 lakh",
+            "maxRebate": 12500,
+            "eligibleIncome": "Taxable income up to ₹5,00,000",
+            "applicableTo": "resident_individuals",
+            "note": "Only for resident individuals, new tax regime allows higher rebate"
+        }
+    },
+    "documentRequirements": {
+        "salaried": [
+            "Form 16 (from employer)",
+            "Salary slips",
+            "Form 26AS / AIS / TIS",
+            "Bank statements",
+            "Interest certificates from banks",
+            "Investment proofs (for 80C, 80D, etc.)",
+            "Rent receipts (if claiming HRA)",
+            "PAN card",
+            "Aadhaar card"
+        ],
+        "business": [
+            "Form 26AS / AIS / TIS",
+            "Books of accounts",
+            "Profit & Loss statement",
+            "Balance sheet",
+            "TDS certificates (if any)",
+            "Bank statements",
+            "Purchase and sales invoices",
+            "GST returns",
+            "PAN card",
+            "Aadhaar card"
+        ],
+        "freelancer": [
+            "Form 26AS / AIS / TIS",
+            "Professional receipts/invoices",
+            "TDS certificates (Form 16A)",
+            "Bank statements",
+            "Expense receipts (for deductions)",
+            "PAN card",
+            "Aadhaar card"
+        ],
+        "rental_income": [
+            "Form 26AS / AIS / TIS",
+            "Rent agreement",
+            "Rent receipts",
+            "Property tax receipts",
+            "Home loan interest certificate",
+            "Municipal tax payment receipts",
+            "PAN card",
+            "Aadhaar card"
+        ],
+        "capital_gains": [
+            "Form 26AS / AIS / TIS",
+            "Purchase and sale documents",
+            "Stock broker statements",
+            "Mutual fund statements",
+            "Property sale deed",
+            "Index cost calculation (for LTCG on property)",
+            "PAN card",
+            "Aadhaar card"
+        ]
+    },
+    "taxSlabs2024": {
+        "oldRegime": {
+            "slabs": [
+                {
+                    "min": 0,
+                    "max": 250000,
+                    "rate": 0
+                },
+                {
+                    "min": 250001,
+                    "max": 500000,
+                    "rate": 5
+                },
+                {
+                    "min": 500001,
+                    "max": 1000000,
+                    "rate": 20
+                },
+                {
+                    "min": 1000001,
+                    "max": null,
+                    "rate": 30
+                }
+            ],
+            "standardDeduction": 50000,
+            "deductionsAllowed": true,
+            "section87ARebate": {
+                "maxIncome": 500000,
+                "rebate": 12500
+            }
+        },
+        "newRegime": {
+            "slabs": [
+                {
+                    "min": 0,
+                    "max": 300000,
+                    "rate": 0
+                },
+                {
+                    "min": 300001,
+                    "max": 700000,
+                    "rate": 5
+                },
+                {
+                    "min": 700001,
+                    "max": 1000000,
+                    "rate": 10
+                },
+                {
+                    "min": 1000001,
+                    "max": 1200000,
+                    "rate": 15
+                },
+                {
+                    "min": 1200001,
+                    "max": 1500000,
+                    "rate": 20
+                },
+                {
+                    "min": 1500001,
+                    "max": null,
+                    "rate": 30
+                }
+            ],
+            "standardDeduction": 50000,
+            "deductionsAllowed": false,
+            "section87ARebate": {
+                "maxIncome": 700000,
+                "rebate": 25000
+            }
+        }
+    },
+    "commonErrors": [
+        {
+            "error": "bank_interest_not_declared",
+            "description": "Bank interest income not declared",
+            "severity": "critical",
+            "detection": "Compare bank statements with declared interest income"
+        },
+        {
+            "error": "salary_mismatch_26as",
+            "description": "Salary mismatch with Form 26AS",
+            "severity": "critical",
+            "detection": "Compare Form 16 with 26AS data"
+        },
+        {
+            "error": "tds_mismatch",
+            "description": "TDS claimed does not match with 26AS",
+            "severity": "critical",
+            "detection": "Verify TDS amounts in 26AS"
+        },
+        {
+            "error": "missing_capital_gains",
+            "description": "Capital gains from stock/mutual fund sale not declared",
+            "severity": "critical",
+            "detection": "Check AIS for capital gains transactions"
+        },
+        {
+            "error": "wrong_itr_selected",
+            "description": "Incorrect ITR form selected",
+            "severity": "critical",
+            "detection": "Match income sources with ITR form eligibility"
+        },
+        {
+            "error": "rebate_87a_not_applied",
+            "description": "Section 87A rebate not claimed",
+            "severity": "warning",
+            "detection": "Check if taxable income is below ₹5 lakh (old) or ₹7 lakh (new)"
+        },
+        {
+            "error": "excess_deduction_claimed",
+            "description": "Deduction claimed exceeds the allowed limit",
+            "severity": "critical",
+            "detection": "Verify 80C limit (₹1.5L), 80D limits, etc."
+        },
+        {
+            "error": "house_property_income_wrong",
+            "description": "House property income calculation incorrect",
+            "severity": "warning",
+            "detection": "Verify standard deduction of 30% and interest deduction"
+        }
+    ]
+}
