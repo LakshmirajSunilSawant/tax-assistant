@@ -10,6 +10,53 @@ AI-powered assistant for Indian citizens to navigate tax filing with ease. Get p
 - **Error Validation** - Catch common filing mistakes before submission
 - **Local AI (Ollama)** - Runs entirely on your machine - no API costs!
 
+## 🏗️ Architecture
+
+```mermaid
+flowchart TB
+    subgraph Frontend["Frontend (Next.js 14)"]
+        UI[React UI]
+        Auth[Clerk Auth]
+        API_Client[API Client]
+    end
+
+    subgraph Backend["Backend (FastAPI)"]
+        Routes[API Routes]
+        TaxEngine[Tax Engine]
+        ValidationEngine[Validation Engine]
+        OllamaService[Ollama Service]
+    end
+
+    subgraph AI["Local AI (Ollama)"]
+        Llama[Llama 3.2 Model]
+    end
+
+    subgraph Optional["Optional Services"]
+        Supabase[(Supabase DB)]
+    end
+
+    UI --> Auth
+    UI --> API_Client
+    API_Client -->|HTTP/REST| Routes
+    Routes --> TaxEngine
+    Routes --> ValidationEngine
+    Routes --> OllamaService
+    OllamaService -->|localhost:11434| Llama
+    Routes -.->|Optional| Supabase
+
+    style Frontend fill:#3b82f6,color:#fff
+    style Backend fill:#22c55e,color:#fff
+    style AI fill:#f59e0b,color:#fff
+    style Optional fill:#6b7280,color:#fff
+```
+
+### Data Flow
+1. **User** interacts with Next.js frontend (authenticated via Clerk)
+2. **Frontend** sends API requests to FastAPI backend
+3. **Backend** processes requests using Tax Engine and Validation Engine
+4. **Ollama Service** calls local Llama 3.2 model for AI responses
+5. **Responses** flow back to user in real-time
+
 ## 🚀 Quick Start
 
 ### Prerequisites
